@@ -6,11 +6,12 @@
   
   <script>
   import VCarousel  from "../components/VCarousel.vue";
-  import axios from 'axios'
+  import  {getBanner} from  '../api/index'
   export default {
      async created (){
-         let res =  await axios.get('https://64a6b84a1ec784a9d5ed6327.hz-iframe-svc.simplelab.cn/mock/playList/banner')
-         this.bannerList= res.data.banners
+        
+         let  res = await getBanner();
+         this.bannerList= res.banners
       },
       data(){
          return {
