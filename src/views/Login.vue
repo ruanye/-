@@ -17,12 +17,14 @@
     </div>
   </template>
   <script>
+   import {mapActions} from 'vuex';
+   import * as Types from '../store/mutations-types'
   export default {
     data() {
       return {
         form: {
-          username: '',
-          password: ''
+          username: 'lanqiaomusic',
+          password: 'Lanqiaomusic2022*'
         },
         rules: {
           username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
@@ -31,11 +33,16 @@
       }
     },
     methods: {
+      ...mapActions([Types.LOGIN]),
       login() {
-        this.$refs.form.validate(valid => {
+        this.$refs.form.validate(async valid => {
           if (valid) {
-            // 发送登录请求
-            console.log(this.form)
+              this[Types.LOGIN](
+                {
+                  account:this.form.username,
+                  password:this.form.password
+                }
+              )
           }
         })
       }

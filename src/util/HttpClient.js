@@ -4,7 +4,7 @@ import axios from "axios";
 class HttpClient {
     constructor() {
       // 定义一些默认值，① 请求地址
-       this.baseURL  =  process.env.NODE_ENV==='development'?'https://64ad3e121ec784a9d5edd594.hz-iframe-svc.simplelab.cn/':'线上服务器';
+       this.baseURL  =  process.env.NODE_ENV==='development'?'https://64afdf2499b97caffab53192.hz-iframe-svc.simplelab.cn/':'线上服务器';
         // ② 定义默认超时时间
        this.timeout = 3000;
 

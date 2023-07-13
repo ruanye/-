@@ -10,5 +10,20 @@ import HttpClient from "@/util/HttpClient"
 
 
 
+ // 登录请求 
+ export const Login =({account,password})=>{
+     return HttpClient.request({
+        url:'/mock/login/account',
+        method:'post',
+        data:{
+            account,
+            password
+        }
+
+     })
+ }
+
+
+
 
 

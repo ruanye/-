@@ -8,22 +8,28 @@
         </el-input>
         <div class="login-action">            
           <img src="@/assets/images/user-circle.png" />
-          <p>未登录</p>
+          <p>{{userName}}</p>
           <i @click="showLogin" class="el-icon-arrow-down"></i>
           <div class="list-login" v-if="showLoginStatus">
-              <router-link to="login">登录</router-link>
+              <router-link to="login">{{ token }} 登录 </router-link>
           </div>
         </div>
       </div>
     </header>
   </template>
   <script>
+  import { mapState } from 'vuex';
     export default {
       data() {
         return {
           showLoginStatus:false,
         };
+        
       },
+      computed:{
+        ...mapState(["userName","token"])
+      },
+
       methods:{
         showLogin(){
           this.showLoginStatus =!this.showLoginStatus
